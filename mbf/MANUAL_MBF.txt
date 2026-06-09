@@ -1,0 +1,79 @@
+ .----------------.  .----------------.  .----------------. 
+| .--------------. || .--------------. || .--------------. |
+| | ____    ____ | || |   ______     | || |  _________   | |
+| ||_   \  /   _|| || |  |_   _ \    | || | |_   ___  |  | |
+| |  |   \/   |  | || |    | |_) |   | || |   | |_  \_|  | |
+| |  | |\  /| |  | || |    |  __'.   | || |   |  _|      | |
+| | _| |_\/_| |_ | || |   _| |__) |  | || |  _| |_       | |
+| ||_____||_____|| || |  |_______/   | || | |_____|      | |
+| |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' |
+ '----------------'  '----------------'  '----------------' 
+
+ Welcome to the language guide for MutOS = MBF or Mutable Brain Fuck,
+ the language was created for entertainment purposes and minor automation 
+ (the fact that it doesn't yet have the ability to automate MutOS doesn't mean it's bad.... probably?) :3
+
+ [1] BASED BF {
+ 	> memory pointer (ptr++)
+ 	< memory pointer (ptr--)
+ 	+ Increment the byte value at the data pointer ((*ptr)++)
+ 	- Decrement the byte value at the data pointer ((*ptr)--)
+	. Output the byte at the data pointer as an ASCII character
+	, Accept one byte of standard input into the cell at the data pointer
+
+	[2] LOOP {
+		[   If the byte at the data pointer is zero, jump forward to the 
+		    command after the matching ']' character
+		]   If the byte at the data pointer is nonzero, jump back to the 
+		    command after the matching '[' character
+	}
+ }
+
+ [!] MBF features {
+ 	#   DIGITAL OUTPUT: Prints the raw integer value of the current cell 
+ 	    directly to the terminal instead of translating it to ASCII
+ 	?   NEWLINE: Outputs a standard '\n' carriage return and flushes stdout
+
+ 	[!] FUNCTION {
+ 		(fa() - fz())
+ 		MBF natively features up to 26 compiler-allocated named functions. 
+ 		Function identifiers are strictly mapped to lowercase English alphabetic 
+ 		characters from 'a' to 'z'
+
+ 		Declaration Syntax:
+ 		    f[name](){ [routine_code] }
+ 		    NOTE: Functions must terminate with '}', which pops the program 
+ 		          counter (ip) off the internal hardware Call Stack.
+ 		
+ 		Execution Syntax:
+ 		    f[name]()
+ 	}
+ }
+
+ [3] EXAMPLE {
+ 	+ #        # Increment cell to 1. Prints: 1
+ 	++++++ #   # Add 6 (cell becomes 7). Prints: 7
+ 	++++ #     # Add 4 (cell becomes 11). Prints: 11
+ 	#          # Echo current data buffer state. Prints: 11
+ 	? !        # Print newline and safely exit execution. 
+ 	           # Combined stdout stream: 171111
+
+ 	fd(){
+ 	    +++++++++++++++++++++++++++++++++. . .
+ 	}
+ 	
+ 	fd()       # Triggers execution stream inside fd() to print "!!!"
+ 	? !        # Newline and exit.
+ }
+
+ [?] FORKING MBF INTERPRETATOR AND COMPILER {
+ 	To compile the core interpreter binary locally on your host compiler:
+ 	    gcc -O2 mbfi.c -o mbfi
+ 	
+ 	To invoke script processing from the environment terminal:
+ 	    ./mbfi <filename.mbf>
+ }
+
+ maybe there will be language updates and it will actually be much better, and I'II (WTF?) become as popular as Linux?..
+ I'm just dreaming, but in any case, I'II (wtf?) try to stick with both MBF and MutOS
