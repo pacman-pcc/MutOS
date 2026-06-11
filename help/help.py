@@ -14,6 +14,10 @@ def help_systeming():
         pl -> task manager
         del -> kill process
         sap -> search
+        +++ -> Create file
+        python -> Python interpretator
+        gcc (full) -> GCC
+        enjoy (full) -> starting file/programm
     """
     print(help_sys)
 

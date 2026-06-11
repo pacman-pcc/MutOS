@@ -14,23 +14,41 @@ from tools import mutfetch as mf
 
 path = os.getcwd()
 old_path = None
-mbfi_path = "/mnt/games/MutOS/mbf/./mbfi"
-games_folder_path = "/mnt/games/MutOS/games/"
 
+# ------------------------[SETTINGS]-----------------------------------------
+mbfi_path = "/mnt/games/MutOS/mbf/./mbfi" # Interpretator MBF
+games_folder_path = "/mnt/games/MutOS/games/" # Games directory
+drivers_folder_path = "/mnt/games/MutOS/drivers/" # Mini-Drivers directory
+editor = "Micro" # Editor (Vim, Nano, Micro)
+# ---------------------------------------------------------------------------
 
-def clear_console():
+def clear_console(): # Clear console
     sys.stdout.write("\033[3J\033[H\033[2J")
     sys.stdout.flush()
 
 
-def ignore_ctrl_c(signum, frame):
+def ignore_ctrl_c(signum, frame): # Anti CTRL+C
     pass
 
 
 signal.signal(signal.SIGINT, ignore_ctrl_c)
 
 
-def ls_command():
+def editor_mut():
+    editor_file = input("Enter edit file > ")
+    try:    
+        if editor == "Nano":
+            subprocess.run(["nano", editor_file])
+        elif editor == "Vim":
+            subprocess.run(["vim", editor_file])
+        elif editor == "Micro":
+            subprocess.run(["micro", editor_file])
+        else:
+            print(col.RED + "MUT: Not found text editor." + col.RESET)
+    except Exception as e:
+        print(col.RED + f"MUT: Error: {e}" + col.RESET)
+
+def ls_command(): # LS
     try:
         items = os.listdir(".")
 
@@ -52,6 +70,9 @@ def ls_command():
         print("   " + "  ".join(output_parts))
     except Exception as e:
         print(f"{col.RED}MUT: Error: {e}{col.RESET}")
+
+def start_notify():
+    subprocess.run([drivers_folder_path + "./notify"])
 
 
 def games_start():
@@ -75,6 +96,7 @@ def games_start():
 
 
 boot.start_boot()
+start_notify()
 
 clear_console()
 
@@ -169,7 +191,7 @@ def main():
                     content = f.read()
                     print(
                         col.MAGENTA
-                        + f"Contents in {file_read}\n-> {content}"
+                        + f"Contents in {file_read}\n{content}"
                         + col.RESET
                     )
             except Exception as e:
@@ -272,6 +294,41 @@ def main():
                     print(col.RED + "Help menu not found" + col.RESET)
             except Exception as e:
                 print(col.RED + f"MUT: Error: {e}")
+
+        elif input_commands == "+++":
+            file_new_input = input("Enter name file > ")
+
+            try:
+                open(file_new_input, 'a').close()
+            except Exception as e:
+                print(col.RED + f"Mut: Error: {e}")
+        elif input_commands == "editor":
+            editor_mut()
+        elif input_commands == "python":
+            file_python = input("Enter file python > ")
+
+            try:
+                subprocess.run(["python", file_python])
+            except Exception as e:
+                print(col.RED + f"MUT: Error: {e}" + col.RESET)
+        elif input_commands.startswith("gcc"):
+            gcc_lists = input_commands.split()
+        
+            subprocess.run(gcc_lists)
+
+
+        elif "enjoy" in input_commands:
+            file_enjoy = input_commands.replace("enjoy", "", 1).strip()
+
+            if file_enjoy.startswith("./") and os.path.exists(file_enjoy):
+                os.system(file_enjoy)
+            else:
+                full_path_enjoy = os.path.abspath(file_enjoy)
+
+                if os.path.exists(full_path_enjoy):
+                    os.system(full_path_enjoy)
+                else:
+                    print(file_enjoy)
         else:
             print(col.RED + "MUT: Error : command not found." + col.RESET)
 
