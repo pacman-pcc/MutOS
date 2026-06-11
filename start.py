@@ -94,8 +94,8 @@ def games_start():
     except Exception as e:
         print(col.RED + f"MUT: Error: {e}" + col.RESET)
 
-
 boot.start_boot()
+subprocess.run([drivers_folder_path + "./mutbeep", "boot"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 start_notify()
 
 clear_console()
@@ -315,8 +315,10 @@ def main():
             gcc_lists = input_commands.split()
         
             subprocess.run(gcc_lists)
+        elif input_commands.startswith("git"):
+            git_lists = input_commands.split()
 
-
+            subprocess.run(git_lists)
         elif "enjoy" in input_commands:
             file_enjoy = input_commands.replace("enjoy", "", 1).strip()
 
@@ -330,6 +332,7 @@ def main():
                 else:
                     print(file_enjoy)
         else:
+            subprocess.run([drivers_folder_path + "./mutbeep", "error"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             print(col.RED + "MUT: Error : command not found." + col.RESET)
 
 
