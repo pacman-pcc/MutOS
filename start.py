@@ -19,7 +19,8 @@ old_path = None
 mbfi_path = "/mnt/basic/MutOS/mbf/./mbfi" # Interpretator MBF
 games_folder_path = "/mnt/basic/MutOS/games/" # Games directory
 drivers_folder_path = "/mnt/basic/MutOS/drivers/" # Mini-Drivers directory
-editor = "Micro" # Editor (Vim, Nano, Micro)
+editor = "Micro" # Editor (Vim, Nano, Micro) # Choose editor code/text
+yappi_path = "/mnt/basic/MutOS/yappi/./YappiM" # Path package manager
 # ---------------------------------------------------------------------------
 
 def clear_console(): # Clear console
@@ -74,6 +75,8 @@ def ls_command(): # LS
 def start_notify():
     subprocess.run([drivers_folder_path + "./notify"])
 
+def pm_yappi():
+    subprocess.run([yappi_path])
 
 def games_start():
     list_games = """
@@ -331,6 +334,8 @@ def main():
                     os.system(full_path_enjoy)
                 else:
                     print(file_enjoy)
+        elif input_commands == "yappi":
+            pm_yappi()
         else:
             subprocess.run([drivers_folder_path + "./mutbeep", "error"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             print(col.RED + "MUT: Error : command not found." + col.RESET)

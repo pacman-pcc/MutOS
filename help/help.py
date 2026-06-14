@@ -18,6 +18,7 @@ def help_systeming():
         python -> Python interpretator
         gcc (full) -> GCC
         enjoy (full) -> starting file/programm
+        yappi -> PACKAGE MANAGER
     """
     print(help_sys)
 
