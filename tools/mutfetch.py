@@ -13,7 +13,7 @@ def mutfetch():
     hostname = platform.node()
     shell_name = "MutSH 1"
     kernel = "Mutruntime 1"
-    os_name = "MutOS 0.3"
+    os_name = "MutOS 1"
     arch = platform.machine()
     uptime = datetime.datetime.now() - datetime.datetime.fromtimestamp(
         psutil.boot_time()
