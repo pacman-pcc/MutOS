@@ -1,16 +1,27 @@
 # MutOS
-## This is a minimal mini-OS with built-in lightweight games and its own fun MBF language with an interpreter.
 
-## PECULIARITIES
-* Custom syntax
-* MBF's own language
-* Interactive console
+![License](https://img.shields.io/github/license/pacman-pcc/MutOS?color=blue)
+![Top Language](https://img.shields.io/github/languages/top/pacman-pcc/MutOS?color=yellow)
+![Last Commit](https://img.shields.io/github/last-commit/pacman-pcc/MutOS?color=green)
+![Stars](https://img.shields.io/github/stars/pacman-pcc/MutOS?style=social)
 
+## ABOUT
+I created MutOS when I was 15 as a hobby project. 
+What if I made a mini-OS in an executable file? I'm actually 15 and studying in college, and I'm making MutOS in my free time. Version 1.0 was made in just 6-7 days. 
+I don't know much about it, and I used AI in some places, but I wrote and came up with a lot of it myself.
 
-## INSTALLING
-* Linux operating system required
-* Open install.sh
-* Enter console **hl** to display help menu
+## Features
+- 0-flag system
+- Crazy syntax (MBF)
+- Meme language MBF
+- Custom SHELL
+- Games in C
+- Mini-package manager (Yappi)
+- Mini drivers
 
-## Phrases from the developer
-> I made MutOS in 4 days, you can hardly call it an OS, I won’t become the second Linus... it’s a shame (... But still, the training was cool, use it for fun, compile this crap yourself, I'm too lazy
+## Installing
+- Only linux system (sorry windows :D)
+- Run install.sh
+
+### Telegram: Not yet
+
