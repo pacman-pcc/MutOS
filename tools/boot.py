@@ -8,7 +8,7 @@ from tools import colors as col
 def start_boot():
     print("\033[2J\033[H\033[?25l", end="")
 
-    tasks = ["Loading Kernel..", "Initializing OS..", "Starting MutOS...."]
+    tasks = ["Loading Kernel..", "Initializing OS..", "Starting MutOS....", "Loading Drivers...", "Settings MutOS...", "Loading TUI", "Loading CKernel..", "Loading Runtime...", "Loading Profile...", "Loading MBF..", "Loading GCC...", "Loading Python...", "Loading MutOS system...", "drivers MutBeep..", "Developer NN..", "Creating Session MP", "Loading MutSH..."]
 
     for task in tasks:
         progress = 0
@@ -26,7 +26,7 @@ def start_boot():
             if progress == 100:
                 break
 
-            progress += random.randint(4, 12)
+            progress += random.randint(45, 65)
             if progress > 100:
                 progress = 100
 

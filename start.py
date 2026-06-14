@@ -16,9 +16,9 @@ path = os.getcwd()
 old_path = None
 
 # ------------------------[SETTINGS]-----------------------------------------
-mbfi_path = "/mnt/games/MutOS/mbf/./mbfi" # Interpretator MBF
-games_folder_path = "/mnt/games/MutOS/games/" # Games directory
-drivers_folder_path = "/mnt/games/MutOS/drivers/" # Mini-Drivers directory
+mbfi_path = "/mnt/basic/MutOS/mbf/./mbfi" # Interpretator MBF
+games_folder_path = "/mnt/basic/MutOS/games/" # Games directory
+drivers_folder_path = "/mnt/basic/MutOS/drivers/" # Mini-Drivers directory
 editor = "Micro" # Editor (Vim, Nano, Micro)
 # ---------------------------------------------------------------------------
 
